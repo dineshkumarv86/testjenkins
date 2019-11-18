@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Collect resources') {
       steps {
-        sh "git clone git://git.yoctoproject.org/poky.git -b $branch"
+        sh "git clone git://git.yoctoproject.org/poky.git "
         checkout([$class: 'GitSCM', 
                            branches: [[name: '$branch'],
                            [name: '5ddf7fff992b065ee512878d2fe65f3e35d818cf']], 
