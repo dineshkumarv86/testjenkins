@@ -12,7 +12,7 @@ pipeline {
     stage('Collect resources'){
             steps{
                 
-        
+                  sh " sudo git clone https://github.com/adlink/meta-adlink-sema"
                 checkout(
                    [$class: 'GitSCM', 
                    branches: [[name: '$branch'],
