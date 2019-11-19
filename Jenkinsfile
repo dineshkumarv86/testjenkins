@@ -98,7 +98,7 @@ pipeline {
 
                 stage('Cook') {
                   steps {
-                    sh "export TEMPLATECONF=$PWD/workspace/meta-adlink-x86-64bit/conf/Adlink-conf/&&source poky/oe-init-build-env&&bitbake core-image-minimal"
+                    sh "source poky/oe-init-build-env&&bitbake core-image-minimal"
                   }
                 }
 
