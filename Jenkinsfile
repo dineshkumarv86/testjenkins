@@ -91,8 +91,7 @@ pipeline {
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'git://git.yoctoproject.org/meta-virtualization']]]
                 )
-                sh "git clone https://github.com/adlink/meta-adlink-x86-64bit -b $branch"
-                sh "git clone https://github.com/adlink/meta-adlink-sema"
+
                 sh "ls"
             }
                 }
