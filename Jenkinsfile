@@ -13,7 +13,9 @@ pipeline {
     // Get some code from a GitHub repository
     checkout([$class: 'GitSCM',
         branches: [[name: '*/sumo']],
-        extensions: [[$class: 'CloneOption', timeout: 120]],
+        extensions: [[$class: 'CloneOption', timeout: 120],[
+                       [$class: 'RelativeTargetDirectory', 
+                       relativeTargetDir: 'poky']],
         gitTool: 'Default', 
         userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
              ]) }
