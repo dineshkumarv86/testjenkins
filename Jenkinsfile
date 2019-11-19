@@ -36,6 +36,7 @@ pipeline {
                    extensions: [
                        [$class: 'RelativeTargetDirectory', 
                        relativeTargetDir: 'meta-openembedded']], 
+                                        gitTool: 'Default',   
                    submoduleCfg: [], 
                    userRemoteConfigs: [[url: 'git://git.openembedded.org/meta-openembedded']]]
                 )
