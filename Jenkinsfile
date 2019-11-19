@@ -23,13 +23,12 @@ pipeline {
        
         checkout([$class: 'GitSCM', 
                            branches: [[name: '*/sumo'],
-                           [name: '5ddf7fff992b065ee512878d2fe65f3e35d818cf']], 
                            doGenerateSubmoduleConfigurations: false, 
                            extensions: [
                                  [$class: 'RelativeTargetDirectory', 
                                  relativeTargetDir: 'poky']], 
                              submoduleCfg: [], 
-                             userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git -b sumo']]])
+                             userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]])
           sh "git clone git://git.openembedded.org/meta-openembedded -b $branch"
           checkout([$class: 'GitSCM', 
                              branches: [[name: '$branch'],
