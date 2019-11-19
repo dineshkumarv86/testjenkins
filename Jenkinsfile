@@ -31,24 +31,25 @@ pipeline {
                 checkout(
                    [$class: 'GitSCM', 
                    branches: [[name: '$branch'],
-                   [name: '8760facba1bceb299b3613b8955621ddaa3d4c3f']], 
+                   [name: 'sumo']], 
                    doGenerateSubmoduleConfigurations: false, 
                    extensions: [
                        [$class: 'RelativeTargetDirectory', 
                        relativeTargetDir: 'meta-openembedded']], 
                                         gitTool: 'Default',   
                    submoduleCfg: [], 
-                   userRemoteConfigs: [[url: 'git://git.openembedded.org/meta-openembedded']]]
+                   userRemoteConfigs: [[url: 'git://git.openembedded.org/meta-openembedded.git']]]
                 )
                 
                 sh "git clone git://git.yoctoproject.org/meta-intel -b $branch"
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '$branch'],
-                    [name: '90af97d23fb2a56187c2fe2a3f4f4190d7cc2605']], 
+                    [name: 'sumo']], 
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'RelativeTargetDirectory', 
                     relativeTargetDir: 'meta-intel']], 
+                   gitTool: 'Default',   
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'git://git.yoctoproject.org/meta-intel']]]
                 )
@@ -57,10 +58,11 @@ pipeline {
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '$branch'],
-                    [name: 'd4e7f73d04e8448d326b6f89908701e304e37d65']], 
+                    [name: 'sumo']], 
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'RelativeTargetDirectory', 
                     relativeTargetDir: 'meta-qt5']], 
+                   gitTool: 'Default',   
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: ' https://github.com/meta-qt5/meta-qt5.git']]]
                 )
@@ -68,10 +70,11 @@ pipeline {
                 sh "git clone https://github.com/jiazhang0/meta-secure-core.git"
                 checkout([
                     $class: 'GitSCM', 
-                    branches: [[name: '1b35fd45a58ef015b52a3df4b39048f2ac1ffbe3']], 
+                    branches: [[name: 'sumo']], 
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'RelativeTargetDirectory', 
                     relativeTargetDir: 'meta-secure-core']], 
+                   gitTool: 'Default',   
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'https://github.com/jiazhang0/meta-secure-core.git']]]
                 )
@@ -80,10 +83,11 @@ pipeline {
                 checkout([
                     $class: 'GitSCM', 
                     branches: [[name: '$branch'],
-                    [name: 'ed2038c935777d1336c17989d454f4e9c95fea7f']], 
+                    [name: 'sumo']], 
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'RelativeTargetDirectory', 
                     relativeTargetDir: 'meta-virtualization']], 
+                   gitTool: 'Default',   
                     submoduleCfg: [], 
                     userRemoteConfigs: [[url: 'git://git.yoctoproject.org/meta-virtualization']]]
                 )
