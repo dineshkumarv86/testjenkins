@@ -23,7 +23,7 @@ pipeline {
                        relativeTargetDir: 'poky']], 
                       gitTool: 'Default', 
                    submoduleCfg: [], 
-                   userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git - b sumo ']]]
+                   userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git ']]]
                 )
                 
                 sh "git clone git://git.openembedded.org/meta-openembedded -b $branch"
