@@ -13,6 +13,7 @@ pipeline {
             steps{
                 
                   sh "  git clone https://github.com/adlink/meta-adlink-sema"
+               sh "git clone https://github.com/adlink/meta-adlink-x86-64bit"
                 checkout(
                    [$class: 'GitSCM', 
                    branches: [[name: '$branch'],
