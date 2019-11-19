@@ -6,26 +6,17 @@ pipeline {
 
   }
   
-node {
 
-stage('clone') { // for display purposes
-    // Get some code from a GitHub repository
-    checkout([$class: 'GitSCM',
-        branches: [[name: '*/master']],
-        extensions: [[$class: 'CloneOption', timeout: 120]],
-        gitTool: 'Default', 
-        userRemoteConfigs: [[url: 'https://github.com/LimeSurvey/LimeSurvey.git']]
-    ])
-}}
   stages {
   stage('clone') { // for display purposes
+    steps{
     // Get some code from a GitHub repository
     checkout([$class: 'GitSCM',
         branches: [[name: '*/master']],
         extensions: [[$class: 'CloneOption', timeout: 120]],
         gitTool: 'Default', 
         userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
-    ])
+             ]) }
 }    
     stage('Collect resources') {
       steps {
