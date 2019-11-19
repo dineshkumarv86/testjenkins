@@ -18,7 +18,7 @@ pipeline {
         userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
              ]) }
 }    
-    stage('clone') {
+    stage('collect resource') {
       steps {
        
         checkout([$class: 'GitSCM', 
