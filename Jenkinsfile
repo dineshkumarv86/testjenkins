@@ -5,6 +5,16 @@ pipeline {
     }
 
   }
+  
+  stage('clone') { // for display purposes
+    // Get some code from a GitHub repository
+    checkout([$class: 'GitSCM',
+        branches: [[name: '*/master']],
+        extensions: [[$class: 'CloneOption', timeout: 120]],
+        gitTool: 'Default', 
+        userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
+    ])
+}
   stages {
     stage('Collect resources') {
       steps {
