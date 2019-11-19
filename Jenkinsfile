@@ -8,30 +8,22 @@ pipeline {
   
 
   stages {
-  stage('clone') { // for display purposes
-    steps{
-    // Get some code from a GitHub repository
-    checkout([$class: 'GitSCM',
-        branches: [[name: '*/sumo']],
-        extensions: [[$class: 'CloneOption', timeout: 120,relativeTargetDir: 'poky']],
-        gitTool: 'Default', 
-        userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
-             ]) }
-}    
+ 
     stage('Collect resources'){
             steps{
                 
-                sh "git clone git://git.yoctoproject.org/poky.git -b $branch"
+        
                 checkout(
                    [$class: 'GitSCM', 
                    branches: [[name: '$branch'],
-                   [name: '5ddf7fff992b065ee512878d2fe65f3e35d818cf']], 
+                   [name: 'sumo']], 
                    doGenerateSubmoduleConfigurations: false, 
                    extensions: [
                        [$class: 'RelativeTargetDirectory', 
                        relativeTargetDir: 'poky']], 
+                      gitTool: 'Default', 
                    submoduleCfg: [], 
-                   userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]]
+                   userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git - b sumo ']]]
                 )
                 
                 sh "git clone git://git.openembedded.org/meta-openembedded -b $branch"
