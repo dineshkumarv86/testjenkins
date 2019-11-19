@@ -6,6 +6,8 @@ pipeline {
 
   }
   
+
+  stages {
   stage('clone') { // for display purposes
     // Get some code from a GitHub repository
     checkout([$class: 'GitSCM',
@@ -14,8 +16,7 @@ pipeline {
         gitTool: 'Default', 
         userRemoteConfigs: [[url: 'git://git.yoctoproject.org/poky.git']]
     ])
-}
-  stages {
+}    
     stage('Collect resources') {
       steps {
         sh "git clone git://git.yoctoproject.org/poky.git "
