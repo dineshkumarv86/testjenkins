@@ -98,7 +98,7 @@ pipeline {
 
                 stage('Cook') {
                   steps {
-                    sh "source poky/oe-init-build-env&&cp ../meta-adlink-x86-64bit/conf/Adlink-conf/*.conf conf/"
+                    sh "source poky/oe-init-build-env&&cp ../meta-adlink-x86-64bit/conf/Adlink-conf/*.conf conf/ && bitbake core-image-xfce"
                   }
                 }
 
